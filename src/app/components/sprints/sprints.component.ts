@@ -16,12 +16,12 @@ export class SprintsComponent implements OnInit {
 
   // sourceData - where data is pulled from; number value
   //  1 - Local Variable
-  //  2 - REST API using a localhost server
-  //  3 - REST API using a remote server
+  //  2 - REST API using a localhost endpoint
+  //  3 - REST API using a remote endpoint
   sourceData: number = 1;
 
+  unformattedSprintList: SprintModel[];
   sprintsList: SprintModel[];
-  mSprintList: any = [];
 
 
   constructor(private localVarTestService: LocalVarTestService, 
@@ -56,32 +56,39 @@ export class SprintsComponent implements OnInit {
   getLocalhostData() {
     var maxSprintNbr;
     let sprintNbrs = [];
-    this.mSprintList = [];
+    this.unformattedSprintList = [];
     this.sprintsList = [];
 
 
-    // Got to REST API to get data and format for display
+    // Go to REST API to get data and format for display
     this.restApiService.getLocalhostApiData().subscribe(resp => {
       for (const data of resp.body) {
-        this.mSprintList.push(data);
+        this.unformattedSprintList.push(data);
       }
       
-      console.log('unformattedapiSprintList');
-      console.log(this.mSprintList);
+      console.log('unformattedSprintList');
+      console.log(this.unformattedSprintList);
 
-      this.mSprintList.map((snbr) => (
+      // create list of Sprint numbers
+      this.unformattedSprintList.map((snbr) => (
         sprintNbrs.push(snbr.sprintnbr)
       ))
   
       console.log('numbers in sprintNbrs: ' + sprintNbrs.length);
   
+      // Find max (latest) Sprint number from list
       maxSprintNbr = sprintNbrs.reduce(function(x,y) {
         return Math.max(x,y);
       })
   
       console.log('maxSprintNbr: ' + maxSprintNbr);
   
-      for (var s of this.mSprintList ) {
+      // format individual Sprint data for display
+      // 1.  max (latest) Sprint will show details on page load
+      //     all other sprints will hide details on page load
+      // 2.  If there are days in the Sprint - sort days in decending order
+      // 3.  Add data formatted sprint to SprintList
+      for (var s of this.unformattedSprintList ) {
   
         if(s.sprintnbr === maxSprintNbr) {
           s.showSprintDetails = true;
@@ -102,7 +109,7 @@ export class SprintsComponent implements OnInit {
         this.sprintsList.push(s);
       }
 
-  
+      // Sort Sprints in decending order - latest (current) Sprint at top of list
       this.sprintsList.sort(function(a,b) {
         return b.sprintnbr - a.sprintnbr;
       })
@@ -116,20 +123,20 @@ export class SprintsComponent implements OnInit {
   getRemoteData() {
     var maxSprintNbr;
     let sprintNbrs = [];
-    this.mSprintList = [];
+    this.unformattedSprintList = [];
     this.sprintsList = [];
 
 
     // Got to REST API to get data and format for display
     this.restApiService.getRemoteEndpointApiData().subscribe(resp => {
       for (const data of resp.body) {
-        this.mSprintList.push(data);
+        this.unformattedSprintList.push(data);
       }
       
-      console.log('unformattedapiSprintList');
-      console.log(this.mSprintList);
+      console.log('unformattedSprintList');
+      console.log(this.unformattedSprintList);
 
-      this.mSprintList.map((snbr) => (
+      this.unformattedSprintList.map((snbr) => (
         sprintNbrs.push(snbr.sprintnbr)
       ))
   
@@ -141,7 +148,7 @@ export class SprintsComponent implements OnInit {
   
       console.log('maxSprintNbr: ' + maxSprintNbr);
   
-      for (var s of this.mSprintList ) {
+      for (var s of this.unformattedSprintList ) {
   
         if(s.sprintnbr === maxSprintNbr) {
           s.showSprintDetails = true;
