@@ -1,0 +1,136 @@
+.cardsprint {
+  text-align: left;
+  align-items: left;
+  justify-content: left;
+  border: 5px solid black;
+  margin: 50px 10px 50px 10px;
+  font-weight: bold;
+}
+
+.cardsprintheader {
+  background-color: #800000;
+  color: #ffd700;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.cardsprintheaderbutton {
+  float: right;  
+  font-size: 1rem;
+}
+
+.cardsprintbody {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.sprintinfo {
+  display: flex;
+}
+
+.sprintlabel {
+  padding-top: 1rem;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.sprintdesc {
+  margin-left: 1rem;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+.cardday {
+  text-align: left;
+  align-items: left;
+  justify-content: left;
+  border: 2px solid #800000;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  font-size: 0.9rem;
+}
+
+.carddayheader {
+  background-color: #ffd700;
+  color: #800000;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.carddaybody {
+  font-weight: normal;
+  padding: 1rem;
+  font-size: 0.8rem;
+}  
+
+div ul {
+  list-style: none;
+  margin-right: 0em;
+  margin-left: 0em;
+  padding-right: 0em;
+  padding-left: 0em;
+}
+
+@media (min-width: 900px) {
+
+  .cardsprintheader {
+    background-color: #800000;
+    color: #ffd700;
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+
+  .cardsprintheaderbutton {
+    float: right;  
+    font-size: 1.25rem;
+  }
+  
+  .sprintlabel {
+    padding-top: 1rem;
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .sprintdesc {
+    margin-left: 1.1rem;
+    font-size: 1.1rem;
+    font-weight: normal;
+  }  
+
+  .cardday {
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+    border: 2px solid #800000;
+    margin: 10px 50px 10px 50px;
+    font-size: 1.1rem;
+  }
+  
+  .carddayheader {
+    background-color: #ffd700;
+    color: #800000;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 1.15rem;
+  }
+
+  .carddaybody {
+    padding: 20px;
+    font-size: 1.1rem;
+  }  
+}
+
+

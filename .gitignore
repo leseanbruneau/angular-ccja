@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Remote REST API URL
+/src/app/model/UtilConstants.ts
+

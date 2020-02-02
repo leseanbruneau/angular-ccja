@@ -1,0 +1,56 @@
+<div *ngFor="let s of sprintsList">
+  <div class="cardsprint">
+    <div class="cardsprintheader">
+      <span>
+        <strong>Sprint {{s.sprintnbr}} - {{s.sprinttitle}}</strong>
+      </span>
+      <span class="cardsprintheaderbutton">
+        <button (click)="s.showSprintDetails=!s.showSprintDetails">
+          <span *ngIf="s.showSprintDetails">Hide</span>
+          <span *ngIf="!s.showSprintDetails">Show</span>
+        </button>
+      </span>
+    </div>
+    <div *ngIf="s.showSprintDetails">
+      <div class="cardsprintbody">
+        <div class="sprintlabel">Sprint Goals:</div>
+        <ul>
+          <li *ngFor="let sg of s.sprintgoals">
+            <div class="sprintdesc">{{sg}}</div>
+          </li>
+        </ul>
+        <div *ngIf="s.sprintreview">
+          <div class="sprintlabel">Sprint Review:</div>
+          <ul>
+            <li *ngFor="let sr of s.sprintreview">
+              <div class="sprintdesc">{{sr}}</div>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="s.days">
+          <div *ngFor="let day of s.days">
+            <div class="cardday">
+              <div class="carddayheader">
+                <span><strong>Sprint Day: </strong> {{day.sprintDay}} | </span>
+                <span><strong>Challenge Day: </strong> {{day.challengeDay}}</span>
+                <span style="float: right">
+                  <strong>Date: </strong>
+                  {{day.date.substring(4,6)}}/{{day.date.substring(6,8)}}/{{day.date.substring(0,4)}}
+                </span>
+              </div>
+              <div class='carddaybody'>
+                <strong>Challenge Day Accomplishments:</strong>
+                <br />
+                <ul>
+                  <li *ngFor="let note of day.dayNotes">
+                    <span style="padding-left: 20px">{{note}}</span>
+                  </li>
+                </ul>
+              </div>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
