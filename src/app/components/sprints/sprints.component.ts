@@ -18,7 +18,7 @@ export class SprintsComponent implements OnInit {
   //  1 - Local Variable
   //  2 - REST API using a localhost endpoint
   //  3 - REST API using a remote endpoint
-  sourceData: number = 1;
+  sourceData: number = 3;
 
   unformattedSprintList: SprintModel[];
   sprintsList: SprintModel[];
