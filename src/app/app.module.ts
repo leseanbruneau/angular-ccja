@@ -12,6 +12,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ResourcesComponent } from './components/resources/resources.component';
 import { SprintsComponent } from './components/sprints/sprints.component';
 import { TipsComponent } from './components/tips/tips.component';
+import { RetroComponent } from './components/retro/retro.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TipsComponent } from './components/tips/tips.component';
     NotfoundComponent,
     ResourcesComponent,
     SprintsComponent,
-    TipsComponent
+    TipsComponent,
+    RetroComponent
   ],
   imports: [
     BrowserModule,
