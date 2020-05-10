@@ -29,6 +29,14 @@
             </li>
           </ul>
         </div>
+        <div *ngIf="s.techdebt">
+          <div class="sprintlabel">Technical Debt:</div>
+          <ul>
+            <li *ngFor="let st of s.techdebt">
+              <div class="sprintdesc">{{st}}</div>
+            </li>
+          </ul>
+        </div>
         <div *ngIf="s.days">
           <div *ngFor="let day of s.days">
             <div class="cardday">

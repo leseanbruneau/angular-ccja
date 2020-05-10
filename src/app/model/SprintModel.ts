@@ -4,6 +4,7 @@ export interface SprintModel {
   sprinttitle: string,
   sprintgoals?: Array<string>,
   sprintreview?: Array<string>,
+  techdebt?: Array<string>,
   showSprintDetails?: boolean,
   days?: Array<{
     id?: number,
