@@ -1,19 +1,34 @@
 <div class="container comptop">
   <p class='display-4'>Angular Tips and Tricks</p>
   <hr />
-  <p><strong>Deploy Angular application to GitHub Pages Repository</strong></p>
-  <p>Two separate directories on workstation - Angular application (%%app_root_directory%%) and GitHub Pages (%%github_repo_directory%%)</p>
-  <p>Linux commands from %%app_root_directory%%</p>
+  <p><strong>Build and Deploy Angular application to Firebase Project</strong></p>
+  <p>I create two separate directories on my development workstation</p>
   <ul>
-      <li><strong>ng build --prod</strong></li>
-      <li><strong>cp -r dist/* %%github_repo_directory%%</strong></li>
+      <li>Angular application (%%app_root_directory%%)</li>
+      <li>Firebase deployment directory %%firebase_deploy_directory%%</li>
   </ul>
-  <p>Linux commands from %%github_repo_directory%% </p>
+  <p>1. Setup Firebase Deployment Directory </p>
+  <p>NOTE:  Linux commands from %%firebase_deploy_directory%%</p>
   <ul>
-      <li><strong>git status</strong></li>
-      <li><strong>git add .</strong></li>
-      <li><strong>git commit -m "Day whatever - be creative with your message"</strong></li>
-      <li><strong>git push -u origin master</strong></li>
+    <li><strong>cd %%firebase_deploy_directory%%</strong></li>
+    <li><strong>firebase login</strong></li>
+    <li>Click login http link - login with gmail account </li>
+    <li><strong>firebase init</strong></li>
+    <li>Answer setup questions for Firebase web hosting</li>
+    <li><strong>firebase logout</strong></li>
+  </ul>
+  <p>2. Create Angular application production deployment build</p>
+  <ul>
+    <li><strong>cd %%app_root_directory%%</strong></li>
+    <li><strong>ng build --prod</strong></li>
+      <li><strong>cp -r dist/angular-ccja/* %%firebase_deploy_directory%%/dist</strong></li>
+  </ul>
+  <p>3. Deploy Angular application to Firebase web hosting site</p>
+  <ul>
+    <li><strong>cd %%firebase_deploy_directory%%</strong></li>
+    <li><strong>firebase login</strong></li>
+    <li><strong>firebase deploy</strong></li>
+    <li><strong>firebase logout</strong></li>
   </ul>
   <br />
   <p><strong>Angular - Create new Angular application</strong></p>
@@ -23,8 +38,9 @@
   <br />
   <p><strong>Sample - Possible node packages to install</strong></p>
   <ul>
-      <li><strong>npm i -g @angular/core</strong></li>
-      <li><strong>npm i -g @angular/cli</strong></li>
+    <li><strong>npm i -g @angular/core</strong></li>
+    <li><strong>npm i -g @angular/cli</strong></li>
+    <li><strong>npm i -g firebase-tools</strong></li>
   </ul>
   <br />
   <p><strong>GitHub Pages - Simple Static Website Hosting</strong></p>
@@ -42,10 +58,5 @@
   <p>Linux command to fix for that stupid "ENOSPC: System limit for number of file watchers reached" error message:</p>
   <p class="px-4"><strong>echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p</strong></p>
   <br />
-  <p><strong>Visual Studio Code</strong></p>
-  <p>Extensions to install</p>
-  <ul>
-      <li></li>
-  </ul>
   <br />
 </div>
