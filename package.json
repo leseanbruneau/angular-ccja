@@ -21,6 +21,7 @@
     "@angular/router": "^10.1.0",
     "elliptic": "^6.5.3",
     "http-proxy": "^1.18.1",
+    "node-forge": "^0.10.0",
     "rxjs": "~6.5.5",
     "serialize-javascript": "^4.0.0",
     "tslib": "^2.0.1",
