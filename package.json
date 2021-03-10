@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^11.2.4",
     "@angular/platform-browser-dynamic": "^11.2.4",
     "@angular/router": "^11.2.4",
-    "elliptic": "^6.5.3",
+    "elliptic": "^6.5.4",
     "http-proxy": "^1.18.1",
     "node-forge": "^0.10.0",
     "rxjs": "~6.5.5",
